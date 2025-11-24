@@ -224,50 +224,8 @@ def load_config():
     return config
 
 
-def create_env_example():
-    """创建 .env.example 示例文件"""
-    example_content = """# Telegram Bot 配置
-TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-TELEGRAM_CHAT_ID=your_chat_id_here
-
-# 预警参数配置
-# 高费率阈值 (默认: 0.01 即 1%)
-THRESHOLD=0.01
-
-# 异常增长比例阈值 (默认: 0.5 即 50%)
-ABNORMAL_GROWTH_THRESHOLD=0.5
-
-# 异常绝对变化阈值 (默认: 0.001 即 0.1%)
-ABNORMAL_CHANGE_THRESHOLD=0.001
-
-# 检查间隔（小时）
-CHECK_INTERVAL_HOURS=1
-
-# 显示配置
-# 每个列表最多显示的合约数量
-MAX_DISPLAY_ITEMS=10
-
-# 无异常时是否也发送消息 (true/false)
-SEND_WHEN_NO_ALERT=false
-"""
-
-    if not os.path.exists('.env.example'):
-        with open('.env.example', 'w', encoding='utf-8') as f:
-            f.write(example_content)
-        print("已创建 .env.example 示例文件")
-
-    if not os.path.exists('.env'):
-        print("\n⚠️  请按以下步骤配置：")
-        print("1. 复制 .env.example 为 .env")
-        print("2. 编辑 .env 文件，填入你的实际配置")
-        print("3. 重新运行程序")
-
-
 async def main():
     try:
-        # 创建示例配置文件
-        create_env_example()
-
         # 加载配置
         config = load_config()
 
