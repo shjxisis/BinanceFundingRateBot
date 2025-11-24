@@ -96,7 +96,7 @@ SEND_WHEN_NO_ALERT=false
 ### 5. 运行机器人
 
 ```bash
-python funding_rate_bot.py
+python binance_funding_rate_bot.py
 ```
 
 ## ⚙️ 配置说明
